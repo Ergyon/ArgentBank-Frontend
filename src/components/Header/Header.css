@@ -1,0 +1,24 @@
+@import '../../index.css';
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    margin-left: 1.5rem;
+    width: 250px;
+}
+
+.header-signin {
+    margin-right: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--main-text-color);
+}
+
+.header-signin-text {
+    font-size: 1rem;
+}
