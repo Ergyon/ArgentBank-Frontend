@@ -1,0 +1,77 @@
+.home-banner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.banner {
+    background-size: cover;
+    background-image: url('../../../img/bank-tree.jpeg');
+    background-position: 0% 35%;
+    padding-block: 6rem;
+}
+
+.banner-desc {
+    background-color: white;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: 6rem;
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    padding: 14px;
+    border-radius: 4px;
+}
+
+.banner-titles {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 1rem;
+}
+.banner-titles h3 {
+    font-size: 1.5rem;
+}
+.banner-titles h3,
+p {
+    margin: 0;
+}
+.banner-subtitle p {
+    margin: 1rem;
+    font-size: 1.1rem;
+}
+
+.features {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: white;
+    margin-top: 1rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 2px solid lightgrey;
+}
+
+.feature-card {
+    padding: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: min(30%, 600px);
+}
+
+.feature-icon {
+    border: 10px solid #00bc77;
+    width: 5.5rem;
+    border-radius: 50%;
+    padding: 1.5rem;
+}
+
+.feature-title {
+    color: #222;
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.feature-subtitle {
+    margin-top: 6px;
+}
