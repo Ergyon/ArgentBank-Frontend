@@ -1,10 +1,19 @@
 import React from 'react'
 import { CircleUserRound } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import logo from '../../../img/argentBankLogo.png'
 import './Header.css'
+import { useAuth } from '../../contexts/AuthContext'
 
 const Header = () => {
+  const { isAuthentified, logout } = useAuth()
+  const navigate = useNavigate()
+
+  const handleLogout = () => {
+    logout()
+    navigate('/')
+  }
+
   return (
     <header>
       <Link to="/">
@@ -15,10 +24,26 @@ const Header = () => {
           aria-label="Accueil"
         ></img>
       </Link>
-      <Link to="/signin" className="header-signin" aria-label="Se connecter">
-        <CircleUserRound size={22} />
-        <span className="header-signin-text">Sign in</span>
-      </Link>
+
+      {isAuthentified ? (
+        <>
+          <Link to="/profile" className="header-signin">
+            <CircleUserRound size={22} />
+            <button
+              className="header-signin-btn"
+              aria-label="Se déconnecter"
+              onClick={handleLogout}
+            >
+              Sign out
+            </button>
+          </Link>
+        </>
+      ) : (
+        <Link to="/signin" className="header-signin" aria-label="Se connecter">
+          <CircleUserRound size={22} />
+          <button className="header-signin-btn">Sign in</button>
+        </Link>
+      )}
     </header>
   )
 }
