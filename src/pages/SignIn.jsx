@@ -3,9 +3,11 @@ import Header from '../components/Header/Header'
 import Footer from '../components/Footer/Footer'
 import SignInForm from '../components/SignInForm/SignInForm'
 import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../contexts/AuthContext'
 
 const SignIn = () => {
   const navigate = useNavigate()
+  const { login } = useAuth()
   const [errorMessage, setErrorMessage] = useState('')
 
   const handleSubmit = async ({ email, password, rememberMe }) => {
@@ -34,15 +36,10 @@ const SignIn = () => {
 
       // sauvegarde token JWT
       const token = data.body.token
+      login(token, rememberMe)
 
-      // sauvegarde permanente ou temporaire de user
-      if (rememberMe) {
-        localStorage.setItem('token', token)
-      } else {
-        sessionStorage.setItem('token', token)
-      }
-
-      navigate('/')
+      // redirection profile
+      navigate('/profile')
     } catch (error) {
       console.error('Login error', error)
       setErrorMessage(error.message)
