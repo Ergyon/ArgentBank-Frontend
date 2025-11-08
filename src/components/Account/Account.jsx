@@ -19,7 +19,7 @@ const Account = ({ account }) => {
         <p className="account-infotext">Available balance</p>
       </div>
       <div className="account-cta">
-        <Link to="/transactions/:accountID" aria-label="View details">
+        <Link to={`/transactions/${account.id}`} aria-label="View details">
           <ArrowRight size={35} />
         </Link>
       </div>
