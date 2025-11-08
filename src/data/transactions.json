@@ -1,0 +1,125 @@
+{
+  "transactions": [
+    {
+      "id": "txn_001",
+      "accountId": "acc_001",
+      "date": "2024-11-05",
+      "description": "Golden Sun Bakery",
+      "amount": -5.0,
+      "balance": 2082.79,
+      "type": "debit",
+      "category": "Food",
+      "notes": ""
+    },
+    {
+      "id": "txn_002",
+      "accountId": "acc_001",
+      "date": "2024-11-04",
+      "description": "Salary Deposit",
+      "amount": 2500.0,
+      "balance": 2087.79,
+      "type": "credit",
+      "category": "Income",
+      "notes": ""
+    },
+    {
+      "id": "txn_003",
+      "accountId": "acc_001",
+      "date": "2024-11-03",
+      "description": "Tech Store Purchase",
+      "amount": -120.5,
+      "balance": -412.21,
+      "type": "debit",
+      "category": "Electronics",
+      "notes": ""
+    },
+    {
+      "id": "txn_004",
+      "accountId": "acc_001",
+      "date": "2024-11-02",
+      "description": "Electric Company",
+      "amount": -75.0,
+      "balance": -291.71,
+      "type": "debit",
+      "category": "Bills",
+      "notes": ""
+    },
+    {
+      "id": "txn_005",
+      "accountId": "acc_001",
+      "date": "2024-11-01",
+      "description": "Grocery Store",
+      "amount": -82.5,
+      "balance": -216.71,
+      "type": "debit",
+      "category": "Food",
+      "notes": ""
+    },
+    {
+      "id": "txn_006",
+      "accountId": "acc_002",
+      "date": "2024-10-28",
+      "description": "Monthly Interest",
+      "amount": 15.42,
+      "balance": 10928.42,
+      "type": "credit",
+      "category": "Interest",
+      "notes": ""
+    },
+    {
+      "id": "txn_007",
+      "accountId": "acc_002",
+      "date": "2024-10-15",
+      "description": "Transfer to Checking",
+      "amount": -500.0,
+      "balance": 10913.0,
+      "type": "transfer",
+      "category": "Transfer",
+      "notes": ""
+    },
+    {
+      "id": "txn_008",
+      "accountId": "acc_002",
+      "date": "2024-10-01",
+      "description": "Deposit",
+      "amount": 1000.0,
+      "balance": 11413.0,
+      "type": "credit",
+      "category": "Deposit",
+      "notes": ""
+    },
+    {
+      "id": "txn_009",
+      "accountId": "acc_003",
+      "date": "2024-11-06",
+      "description": "Online Purchase",
+      "amount": -52.3,
+      "balance": 184.3,
+      "type": "debit",
+      "category": "Shopping",
+      "notes": ""
+    },
+    {
+      "id": "txn_010",
+      "accountId": "acc_003",
+      "date": "2024-11-03",
+      "description": "Restaurant",
+      "amount": -89.0,
+      "balance": 236.6,
+      "type": "debit",
+      "category": "Food",
+      "notes": ""
+    },
+    {
+      "id": "txn_011",
+      "accountId": "acc_003",
+      "date": "2024-10-30",
+      "description": "Payment Received",
+      "amount": 300.0,
+      "balance": 325.6,
+      "type": "credit",
+      "category": "Payment",
+      "notes": ""
+    }
+  ]
+}

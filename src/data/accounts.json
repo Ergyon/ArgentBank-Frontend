@@ -1,0 +1,28 @@
+{
+  "accounts": [
+    {
+      "id": "acc01_001",
+      "userId": "690c8cd2c415f23560bf230a",
+      "accountType": "checking",
+      "currency": "USD",
+      "balance": 2082.79,
+      "displayName": "Argent Bank Checking (x3448)"
+    },
+    {
+      "id": "acc01_002",
+      "userId": "690c8cd2c415f23560bf230a",
+      "accountType": "savings",
+      "currency": "USD",
+      "balance": 10928.42,
+      "displayName": "Argent Bank Savings (x3448)"
+    },
+    {
+      "id": "acc01_003",
+      "userId": "690c8cd2c415f23560bf230a",
+      "accountType": "credit",
+      "currency": "USD",
+      "balance": 184.3,
+      "displayName": "Argent Bank Credit Card (x3448)"
+    }
+  ]
+}
