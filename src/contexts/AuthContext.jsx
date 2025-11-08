@@ -1,6 +1,5 @@
 import React from 'react'
-import { useState, useEffect, useContext } from 'react'
-import { createContext } from 'react-router-dom'
+import { useState, useEffect, useContext, createContext } from 'react'
 
 const AuthContext = createContext()
 

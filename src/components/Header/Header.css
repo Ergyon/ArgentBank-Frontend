@@ -19,6 +19,10 @@ header {
     color: var(--main-text-color);
 }
 
-.header-signin-text {
+.header-signin-btn {
     font-size: 1rem;
+    background: none;
+    border: none;
+    color: var(--main-text-color);
+    cursor: pointer;
 }
