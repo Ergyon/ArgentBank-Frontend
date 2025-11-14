@@ -9,7 +9,7 @@ import Account from '../../components/Account/Account'
 
 const ProfilePage = () => {
   const navigate = useNavigate()
-  const { token, userData, setUserData, logout } = useAuth()
+  const { token, userData, setUserData } = useAuth()
   const [accounts, setAccounts] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState('')
@@ -43,9 +43,21 @@ const ProfilePage = () => {
 
         setUserData(profileData.body)
 
+        // si remember me : save les datas dans le storage pour persister au refresh
+        const isRememberMe = localStorage.getItem('token')
+        if (isRememberMe) {
+          localStorage.setItem('userData', JSON.stringify(profileData.body))
+        } else {
+          sessionStorage.setItem('userData', JSON.stringify(profileData.body))
+        }
+
         // recuperer donnees bancaires (mockees)
-        const userId = profileData.body.id
+        const userId = profileData.body.id || '690c8cd2c415f23560bf230a'
+        console.log('Profile data:', profileData.body)
+        console.log('Using userId:', userId)
+
         const accountsResponse = getUserAccounts(userId)
+        console.log('Accounts response:', accountsResponse)
 
         if (accountsResponse.status !== 200) {
           throw new Error('Failed to fetch accounts')
@@ -61,7 +73,7 @@ const ProfilePage = () => {
     }
 
     fetchUserData()
-  }, [navigate, setUserData, token, logout])
+  }, [navigate, token, setUserData])
 
   // si en chargement
   if (isLoading) {

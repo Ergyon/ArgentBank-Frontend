@@ -34,9 +34,10 @@ const SignIn = () => {
       // connexion reussie
       console.log('Login successful :', data)
 
-      // sauvegarde token JWT
+      // sauvegarde token JWT et donnees user
       const token = data.body.token
-      login(token, rememberMe)
+      const user = data.body.user || null
+      login(token, rememberMe, user)
 
       // redirection profile
       navigate('/profile')
