@@ -14,19 +14,19 @@ export const useAuth = () => {
 
 // provider
 export const AuthProvider = ({ children }) => {
-  const [isAuthentified, setIsAuthentified] = useState(false)
-  const [token, setToken] = useState(null)
-  const [userData, setUserData] = useState(null)
+  // recuperer token et userData si deja existants
+  const storedToken =
+    localStorage.getItem('token') || sessionStorage.getItem('token')
 
-  // verifier au chargement si un token existe
-  useEffect(() => {
-    const storedToken =
-      localStorage.getItem('token') || sessionStorage.getItem('token')
-    if (storedToken) {
-      setToken(storedToken)
-      setIsAuthentified(true)
-    }
-  }, [])
+  const storedUserData = () => {
+    const stored =
+      localStorage.getItem('userData') || sessionStorage.getItem('userData')
+    return stored ? JSON.parse(stored) : null
+  }
+
+  const [token, setToken] = useState(storedToken)
+  const [userData, setUserData] = useState(storedUserData)
+  const [isAuthentified, setIsAuthentified] = useState(false)
 
   // connexion
   const login = (token, rememberMe, user = null) => {
@@ -36,8 +36,14 @@ export const AuthProvider = ({ children }) => {
 
     if (rememberMe) {
       localStorage.setItem('token', token)
+      if (user) {
+        localStorage.setItem('userData', JSON.stringify(user))
+      }
     } else {
       sessionStorage.setItem('token', token)
+      if (user) {
+        sessionStorage.setItem('userData', JSON.stringify(user))
+      }
     }
   }
 
@@ -47,7 +53,9 @@ export const AuthProvider = ({ children }) => {
     setIsAuthentified(false)
     setUserData(null)
     localStorage.removeItem('token')
+    localStorage.removeItem('userData')
     sessionStorage.removeItem('token')
+    sessionStorage.removeItem('userData')
   }
 
   const value = {
