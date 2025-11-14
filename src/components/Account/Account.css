@@ -1,0 +1,37 @@
+@import '../../index.css';
+
+.account {
+    background-color: var(--main-text-color);
+    /*width: 80%;*/
+    margin: 1rem auto;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.account-content {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    text-align: left;
+    gap: 12px;
+}
+
+.account-title {
+    font-size: 1rem;
+    font-weight: 300;
+    margin: 0;
+}
+
+.account-amount {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 4px 0;
+}
+
+.account-infotext {
+    font-size: 13px;
+}

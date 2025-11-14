@@ -1,0 +1,16 @@
+.transactions-container {
+    /*width: 85%;*/
+    margin: 1rem auto;
+}
+
+.transactions-table-head {
+    display: flex;
+    margin-left: 1rem;
+}
+
+.transactions-table-head h4 {
+    flex: 1;
+    text-align: start;
+    margin: 1.5rem 0 0 0;
+    font-weight: 300;
+}

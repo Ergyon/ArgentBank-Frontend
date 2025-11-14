@@ -1,0 +1,14 @@
+.transaction-row {
+    display: flex;
+    background-color: #00bc77;
+    color: white;
+    padding: 14px 8px;
+    border-radius: 5px;
+    margin: 1rem 0;
+    font-size: 1.2rem;
+}
+
+.transaction-info {
+    flex: 1;
+    text-align: start;
+}
