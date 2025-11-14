@@ -1,8 +1,13 @@
 import React from 'react'
 import { ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import './Account.css'
+import { useState } from 'react'
 
 const Account = ({ account }) => {
+  // const [collapse, isCollapse] useState(false)
+  // todo changer icone selon la page (profile, transactions)
+
   // format devise en $
   const formatCurrency = (amount) => {
     return new Intl.NumberFormat('en-US', {
@@ -12,7 +17,7 @@ const Account = ({ account }) => {
   }
 
   return (
-    <section className="account">
+    <div className="account">
       <div className="account-content">
         <h3 className="account-title">{account.displayName}</h3>
         <p className="account-amount">{formatCurrency(account.balance)}</p>
@@ -20,10 +25,10 @@ const Account = ({ account }) => {
       </div>
       <div className="account-cta">
         <Link to={`/transactions/${account.id}`} aria-label="View details">
-          <ArrowRight size={35} />
+          <ArrowRight size={35} color="white" />
         </Link>
       </div>
-    </section>
+    </div>
   )
 }
 
