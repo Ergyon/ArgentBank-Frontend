@@ -7,9 +7,9 @@
       "description": "Golden Sun Bakery",
       "amount": 5.0,
       "balance": 2082.79,
-      "type": "debit",
+      "type": "Electronic",
       "category": "Food",
-      "notes": ""
+      "notes": "Job dinner"
     },
     {
       "id": "txn_002",
@@ -18,9 +18,9 @@
       "description": "Salary Deposit",
       "amount": 2500.0,
       "balance": 2087.79,
-      "type": "credit",
+      "type": "Credit",
       "category": "Income",
-      "notes": ""
+      "notes": "Promotion"
     },
     {
       "id": "txn_003",
@@ -29,8 +29,8 @@
       "description": "Tech Store Purchase",
       "amount": 120.5,
       "balance": 412.21,
-      "type": "debit",
-      "category": "Electronics",
+      "type": "Electronic",
+      "category": "Food",
       "notes": ""
     },
     {
@@ -40,9 +40,9 @@
       "description": "Electric Company",
       "amount": 75.0,
       "balance": 291.71,
-      "type": "debit",
+      "type": "Electronic",
       "category": "Bills",
-      "notes": ""
+      "notes": "Insurance"
     },
     {
       "id": "txn_005",
@@ -51,7 +51,7 @@
       "description": "Grocery Store",
       "amount": 82.5,
       "balance": 216.71,
-      "type": "debit",
+      "type": "Electronic",
       "category": "Food",
       "notes": ""
     },
@@ -62,7 +62,7 @@
       "description": "Monthly Interest",
       "amount": 15.42,
       "balance": 10928.42,
-      "type": "credit",
+      "type": "Credit",
       "category": "Interest",
       "notes": ""
     },
@@ -73,7 +73,7 @@
       "description": "Transfer to Checking",
       "amount": 500.0,
       "balance": 10913.0,
-      "type": "transfer",
+      "type": "Credit",
       "category": "Transfer",
       "notes": ""
     },
@@ -84,9 +84,9 @@
       "description": "Deposit",
       "amount": 1000.0,
       "balance": 11413.0,
-      "type": "credit",
+      "type": "Credit",
       "category": "Deposit",
-      "notes": ""
+      "notes": "Rent"
     },
     {
       "id": "txn_009",
@@ -95,9 +95,9 @@
       "description": "Online Purchase",
       "amount": 52.3,
       "balance": 184.3,
-      "type": "debit",
+      "type": "Electronic",
       "category": "Shopping",
-      "notes": ""
+      "notes": "Birthday Gift"
     },
     {
       "id": "txn_010",
@@ -106,9 +106,9 @@
       "description": "Restaurant",
       "amount": 89.0,
       "balance": 236.6,
-      "type": "debit",
+      "type": "Electronic",
       "category": "Food",
-      "notes": ""
+      "notes": "Date couple"
     },
     {
       "id": "txn_011",
@@ -117,7 +117,7 @@
       "description": "Payment Received",
       "amount": 300.0,
       "balance": 325.6,
-      "type": "credit",
+      "type": "Credit",
       "category": "Payment",
       "notes": ""
     }
