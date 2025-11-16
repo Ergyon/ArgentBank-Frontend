@@ -45,3 +45,96 @@ export const getTransaction = (transactionId) => {
     body: transaction,
   }
 }
+
+// recuperer les categories
+export const getCategories = () => {
+  const categories = [
+    ...new Set(
+      transactionsData.transactions.map((transaction) => transaction.category),
+    ),
+  ]
+
+  return {
+    status: 200,
+    message: 'Categories retrieved successfully',
+    body: categories.sort(),
+  }
+}
+
+// mettre a jour la categorie d'une transaction
+export const updateCategory = (transactionId, newCategory) => {
+  const transaction = transactionsData.transactions.find(
+    (t) => t.id === transactionId,
+  )
+
+  if (!transaction) {
+    return {
+      status: 404,
+      message: 'Transaction not found',
+      body: null,
+    }
+  }
+
+  transaction.category = newCategory
+
+  return {
+    status: 200,
+    message: 'Category updated successfully',
+    body: transaction,
+  }
+}
+
+// mettre a jour la note
+export const updateNote = (transactionId, newNote) => {
+  const transaction = transactionsData.transactions.find(
+    (t) => t.id === transactionId,
+  )
+
+  if (!transaction) {
+    return {
+      status: 404,
+      message: 'Transaction not found',
+      body: null,
+    }
+  }
+
+  transaction.notes = newNote
+
+  return {
+    status: 200,
+    message: 'Note updated successfully',
+    body: transaction,
+  }
+}
+
+// mettre a jour le profil user
+export const updateUserProfile = async (token, updatedData) => {
+  try {
+    const response = await fetch('http://localhost:3001/api/v1/user/profile', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(updatedData),
+    })
+
+    const data = await response.json()
+
+    if (!response.ok || data.status !== 200) {
+      throw new Error(data.message || 'Failed to update profile')
+    }
+
+    return {
+      status: 200,
+      message: 'Profile updated successfully',
+      body: data.body,
+    }
+  } catch (error) {
+    return {
+      status: 500,
+      message: error.message,
+      body: null,
+    }
+  }
+}

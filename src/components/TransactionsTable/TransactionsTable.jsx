@@ -13,19 +13,18 @@ const TransactionsTable = ({ transactions }) => {
 
   return (
     <div className="transactions-container">
-      <div className="transactions-table">
-        <div className="transactions-table-head">
-          <h4>Date</h4>
-          <h4>Description</h4>
-          <h4>Amount</h4>
-          <h4>Balance</h4>
-        </div>
+      <div className="transactions-header">
+        <div className="header-title">Date</div>
+        <div className="header-title">Description</div>
+        <div className="header-title">Amount</div>
+        <div className="header-title">Balance</div>
+        <div className="header-title"></div>
+      </div>
 
-        <div>
-          {transactions.map((transaction) => (
-            <TransactionRow key={transaction.id} transaction={transaction} />
-          ))}
-        </div>
+      <div className="transactions-list">
+        {transactions.map((transaction) => (
+          <TransactionRow key={transaction.id} transaction={transaction} />
+        ))}
       </div>
     </div>
   )

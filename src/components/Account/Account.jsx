@@ -1,12 +1,11 @@
 import React from 'react'
-import { ArrowRight } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { ArrowRight, X } from 'lucide-react'
+import { Link, useLocation } from 'react-router-dom'
 import './Account.css'
-import { useState } from 'react'
 
 const Account = ({ account }) => {
-  // const [collapse, isCollapse] useState(false)
-  // todo changer icone selon la page (profile, transactions)
+  const location = useLocation()
+  const isTransactionPage = location.pathname.includes('/transactions')
 
   // format devise en $
   const formatCurrency = (amount) => {
@@ -24,9 +23,15 @@ const Account = ({ account }) => {
         <p className="account-infotext">Available balance</p>
       </div>
       <div className="account-cta">
-        <Link to={`/transactions/${account.id}`} aria-label="View details">
-          <ArrowRight size={35} color="white" />
-        </Link>
+        {isTransactionPage ? (
+          <Link to="/profile" aria-label="close">
+            <X size={35} color="white" />
+          </Link>
+        ) : (
+          <Link to={`/transactions/${account.id}`} aria-label="View details">
+            <ArrowRight size={35} color="white" />
+          </Link>
+        )}
       </div>
     </div>
   )

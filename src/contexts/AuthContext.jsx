@@ -1,9 +1,8 @@
 import React from 'react'
-import { useState, useEffect, useContext, createContext } from 'react'
+import { useState, useContext, createContext } from 'react'
 
 const AuthContext = createContext()
 
-// custom hook
 export const useAuth = () => {
   const context = useContext(AuthContext)
   if (!context) {
@@ -26,7 +25,7 @@ export const AuthProvider = ({ children }) => {
 
   const [token, setToken] = useState(storedToken)
   const [userData, setUserData] = useState(storedUserData)
-  const [isAuthentified, setIsAuthentified] = useState(false)
+  const [isAuthentified, setIsAuthentified] = useState(!!storedToken)
 
   // connexion
   const login = (token, rememberMe, user = null) => {
@@ -34,6 +33,7 @@ export const AuthProvider = ({ children }) => {
     setIsAuthentified(true)
     setUserData(user)
 
+    // enregistrer ids de connexion
     if (rememberMe) {
       localStorage.setItem('token', token)
       if (user) {

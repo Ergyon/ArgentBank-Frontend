@@ -32,7 +32,6 @@ const SignIn = () => {
       }
 
       // connexion reussie
-      console.log('Login successful :', data)
 
       // sauvegarde token JWT et donnees user
       const token = data.body.token

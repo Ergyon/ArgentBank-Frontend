@@ -6,6 +6,7 @@ import { getUserAccounts } from '../../services/api'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
 import Account from '../../components/Account/Account'
+import EditNameForm from '../../components/EditNameForm/EditNameForm'
 
 const ProfilePage = () => {
   const navigate = useNavigate()
@@ -13,6 +14,7 @@ const ProfilePage = () => {
   const [accounts, setAccounts] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState('')
+  const [isEditingName, setIsEditingName] = useState(false)
 
   useEffect(() => {
     // si pas de token : retour a la page de connexion
@@ -43,21 +45,9 @@ const ProfilePage = () => {
 
         setUserData(profileData.body)
 
-        // si remember me : save les datas dans le storage pour persister au refresh
-        const isRememberMe = localStorage.getItem('token')
-        if (isRememberMe) {
-          localStorage.setItem('userData', JSON.stringify(profileData.body))
-        } else {
-          sessionStorage.setItem('userData', JSON.stringify(profileData.body))
-        }
-
         // recuperer donnees bancaires (mockees)
         const userId = profileData.body.id || '690c8cd2c415f23560bf230a'
-        console.log('Profile data:', profileData.body)
-        console.log('Using userId:', userId)
-
         const accountsResponse = getUserAccounts(userId)
-        console.log('Accounts response:', accountsResponse)
 
         if (accountsResponse.status !== 200) {
           throw new Error('Failed to fetch accounts')
@@ -73,7 +63,7 @@ const ProfilePage = () => {
     }
 
     fetchUserData()
-  }, [navigate, token, setUserData])
+  }, [token, navigate, setUserData])
 
   // si en chargement
   if (isLoading) {
@@ -102,14 +92,18 @@ const ProfilePage = () => {
     <>
       <Header />
       <main>
-        <div className="header-profile">
-          <h1 className="welcome-message">
-            Welcome back
-            <br />
-            {userData?.firstName} {userData?.lastName}!
-          </h1>
-          <button>Edit name</button>
-        </div>
+        {isEditingName ? (
+          <EditNameForm onClose={() => setIsEditingName(false)} />
+        ) : (
+          <div className="header-profile">
+            <h1 className="welcome-message">
+              Welcome back
+              <br />
+              {userData?.firstName} {userData?.lastName}!
+            </h1>
+            <button onClick={() => setIsEditingName(true)}>Edit name</button>
+          </div>
+        )}
         <div className="accounts-container">
           {accounts.length > 0 ? (
             accounts.map((account) => (
