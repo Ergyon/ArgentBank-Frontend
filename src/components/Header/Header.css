@@ -12,13 +12,19 @@ header {
     width: 250px;
 }
 
+.header-user-log {
+    display: flex;
+    align-items: center;
+}
+
 .header-signin {
     margin-right: 2rem;
     display: flex;
-    align-items: center;
-    gap: 8px;
+    gap: 4px;
     text-decoration: none;
     color: var(--main-text-color);
+    display: flex;
+    align-items: center;
 }
 
 .header-signin-btn {
@@ -27,4 +33,12 @@ header {
     border: none;
     color: var(--main-text-color);
     cursor: pointer;
+}
+
+.header-username {
+    color: var(--main-color-green);
+    display: flex;
+    align-items: center;
+    margin-right: 0.5rem;
+    font-size: 14px;
 }

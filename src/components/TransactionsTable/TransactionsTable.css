@@ -1,16 +1,31 @@
 .transactions-container {
-    /*width: 85%;*/
-    margin: 1rem auto;
+    margin: 2.5rem auto;
 }
 
-.transactions-table-head {
-    display: flex;
-    margin-left: 1rem;
+.transactions-header {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr 60px;
+    gap: 2rem;
+    font-weight: 500;
+    font-size: 1.1rem;
 }
 
-.transactions-table-head h4 {
-    flex: 1;
-    text-align: start;
-    margin: 1.5rem 0 0 0;
-    font-weight: 300;
+.header-title {
+    text-align: left;
+}
+
+.header-title:first-child {
+    margin-left: 1.5rem;
+}
+
+.header-title:nth-child(2) {
+    margin-left: 1.5rem;
+}
+
+.header-title:last-child {
+    text-align: center;
+}
+
+.transactions-list {
+    margin-top: 1rem;
 }
