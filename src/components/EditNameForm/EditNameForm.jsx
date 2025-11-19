@@ -74,43 +74,45 @@ const EditNameForm = ({ onClose }) => {
           <legend className="info-form-title">Edit user info</legend>
 
           {error && <div>{error}</div>}
-
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            id="username"
-            value={userName}
-            className="info-form-input"
-            onChange={(e) => setUsername(e.target.value)}
-            placeholder="Username"
-            disabled={isSubmitting}
-            required
-          />
-
-          <label htmlFor="firstName">First Name</label>
-          <input
-            type="text"
-            id="firstName"
-            value={firstName}
-            className="info-form-input"
-            onChange={(e) => setFirstName(e.target.value)}
-            placeholder={userData?.firstName}
-            disabled={isSubmitting}
-            required
-          />
-
-          <label htmlFor="lastName">Last Name</label>
-          <input
-            type="text"
-            id="lastName"
-            value={lastName}
-            className="info-form-input"
-            onChange={(e) => setLastName(e.target.value)}
-            placeholder={userData?.lastName}
-            disabled={isSubmitting}
-            required
-          />
-
+          <div className="label-input">
+            <label htmlFor="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              value={userName}
+              className="info-form-input"
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Username"
+              disabled={isSubmitting}
+              required
+            />
+          </div>
+          <div className="label-input">
+            <label htmlFor="firstName">First Name</label>
+            <input
+              type="text"
+              id="firstName"
+              value={firstName}
+              className="info-form-input"
+              onChange={(e) => setFirstName(e.target.value)}
+              placeholder={userData?.firstName}
+              disabled={isSubmitting}
+              required
+            />
+          </div>
+          <div className="label-input">
+            <label htmlFor="lastName">Last Name</label>
+            <input
+              type="text"
+              id="lastName"
+              value={lastName}
+              className="info-form-input"
+              onChange={(e) => setLastName(e.target.value)}
+              placeholder={userData?.lastName}
+              disabled={isSubmitting}
+              required
+            />
+          </div>
           <div className="info-form-cta">
             <button
               className="info-form-btn"
