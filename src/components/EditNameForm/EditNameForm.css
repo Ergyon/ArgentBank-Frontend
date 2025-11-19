@@ -1,0 +1,60 @@
+@import '../../index.css';
+
+.edit-name-btn {
+    padding: 14px 0px;
+    width: 150px;
+    background-color: var(--main-color-green);
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 1rem 0;
+}
+
+.info-form-container {
+    margin: 2rem 0;
+}
+
+.info-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    width: 50%;
+}
+
+.info-form-title {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+.label-input {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.info-form-input {
+    padding: 8px 3px;
+    max-width: 150px;
+}
+.info-form-input:focus {
+    outline: none;
+}
+
+.info-form-cta {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.info-form-btn {
+    padding: 14px 0px;
+    width: 150px;
+    background-color: var(--main-color-green);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
