@@ -7,6 +7,7 @@ import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
 import Account from '../../components/Account/Account'
 import EditNameForm from '../../components/EditNameForm/EditNameForm'
+import '../../components/EditNameForm/EditNameForm.css'
 
 const ProfilePage = () => {
   const navigate = useNavigate()
@@ -101,7 +102,12 @@ const ProfilePage = () => {
               <br />
               {userData?.firstName} {userData?.lastName}!
             </h1>
-            <button onClick={() => setIsEditingName(true)}>Edit name</button>
+            <button
+              onClick={() => setIsEditingName(true)}
+              className="edit-name-btn"
+            >
+              Edit name
+            </button>
           </div>
         )}
         <div className="accounts-container">
