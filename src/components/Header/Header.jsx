@@ -14,6 +14,16 @@ const Header = () => {
     navigate('/')
   }
 
+  const displayName = () => {
+    if (!userData) return ''
+
+    if (userData.username) {
+      return userData.username
+    }
+
+    return `${userData.firstName} ${userData.lastName}`.trim()
+  }
+
   return (
     <header>
       <Link to="/">
@@ -29,9 +39,7 @@ const Header = () => {
         <>
           <div className="header-user-log">
             <Link to="/profile" className="header-signin">
-              <span className="header-username">
-                {userData?.firstName} {userData?.lastName}
-              </span>
+              <span className="header-username">{displayName()}</span>
               <CircleUserRound size={22} />
               <button
                 className="header-signin-btn"
