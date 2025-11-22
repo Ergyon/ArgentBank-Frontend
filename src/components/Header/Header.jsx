@@ -1,17 +1,20 @@
-import React from 'react'
 import { CircleUserRound } from 'lucide-react'
 import { Link, useNavigate } from 'react-router-dom'
 import logo from '../../../img/argentBankLogo.png'
+import { useDispatch, useSelector } from 'react-redux'
+import { logout } from '../../redux/slices/authSlice'
 import './Header.css'
-import { useAuth } from '../../contexts/AuthContext'
 
 const Header = () => {
-  const { isAuthentified, logout, userData } = useAuth()
+  const dispatch = useDispatch
   const navigate = useNavigate()
 
+  const { isAuthenticated } = useSelector((state) => state.auth)
+  const { data: userData } = useSelector((state) => state.user)
+
   const handleLogout = () => {
-    logout()
     navigate('/')
+    dispatch(logout())
   }
 
   const displayName = () => {
@@ -35,7 +38,7 @@ const Header = () => {
         ></img>
       </Link>
 
-      {isAuthentified ? (
+      {isAuthenticated ? (
         <>
           <div className="header-user-log">
             <Link to="/profile" className="header-signin">

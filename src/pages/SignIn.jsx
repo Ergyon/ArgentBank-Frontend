@@ -1,56 +1,45 @@
-import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { useState, useEffect } from 'react'
+import { loginUser } from '../redux/slices/authSlice'
 import Header from '../components/Header/Header'
 import Footer from '../components/Footer/Footer'
 import SignInForm from '../components/SignInForm/SignInForm'
-import { useNavigate } from 'react-router-dom'
-import { useAuth } from '../contexts/AuthContext'
 
 const SignIn = () => {
+  const dispatch = useDispatch()
   const navigate = useNavigate()
-  const { login } = useAuth()
-  const [errorMessage, setErrorMessage] = useState('')
+
+  const { loading, error, isAuthenticated } = useSelector((state) => state.auth)
+  const [localError, setLocalError] = useState('')
+
+  // rediriger si deja connecte
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/profile')
+    }
+  }, [isAuthenticated, navigate])
 
   const handleSubmit = async ({ email, password, rememberMe }) => {
     try {
-      // appel API
-      const response = await fetch('http://localhost:3001/api/v1/user/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
-      })
+      setLocalError('')
 
-      const data = await response.json()
-
-      // si invalide
-      if (!response.ok || data.status !== 200) {
-        throw new Error(data.message || 'Invalid email or password')
-      }
-
-      // connexion reussie
-
-      // sauvegarde token JWT et donnees user
-      const token = data.body.token
-      const user = data.body.user || null
-      login(token, rememberMe, user)
-
-      // redirection profile
-      navigate('/profile')
-    } catch (error) {
-      console.error('Login error', error)
-      setErrorMessage(error.message)
-      throw error
+      const result = await dispatch(
+        loginUser({ email, password, rememberMe }),
+      ).unwrap()
+    } catch (err) {
+      setLocalError(err || 'Login failed')
     }
   }
 
   return (
     <>
       <Header />
-      <SignInForm onSubmit={handleSubmit} errorMessage={errorMessage} />
+      <SignInForm
+        onSubmit={handleSubmit}
+        errorMessage={localError || error}
+        loading={loading}
+      />
       <Footer />
     </>
   )
